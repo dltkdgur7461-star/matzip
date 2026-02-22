@@ -13,178 +13,178 @@
   --red:#e63946;--red-dim:#8b1a22;--gold:#f4a429;--gold-dim:#7a5214;
   --text:#efefef;--text-muted:#888;--text-dim:#555;
   --green:#2dce7a;--blue:#4fa3e0;--purple:#c084fc;
-  --r:10px;--sidebar-w:400px;
+  --r:10px;--sidebar-w:410px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);height:100dvh;overflow:hidden;display:flex;flex-direction:column;}
 
-header{height:56px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:14px;padding:0 16px;flex-shrink:0;z-index:50;}
-.logo{font-family:'Black Han Sans',sans-serif;font-size:1.3rem;white-space:nowrap;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.search-bar{flex:1;display:flex;gap:8px;max-width:480px;}
-.search-bar input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 14px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;transition:border-color .2s;}
+header{height:56px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:0 14px;flex-shrink:0;z-index:50;}
+.logo{font-family:'Black Han Sans',sans-serif;font-size:1.25rem;white-space:nowrap;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.search-bar{flex:1;display:flex;gap:8px;max-width:460px;}
+.search-bar input{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:inherit;font-size:.85rem;outline:none;transition:border-color .2s;}
 .search-bar input:focus{border-color:var(--red);}
 .search-bar input::placeholder{color:var(--text-dim);}
 
-.btn{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.82rem;font-weight:700;transition:all .15s;white-space:nowrap;}
+.btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.8rem;font-weight:700;transition:all .15s;white-space:nowrap;}
 .btn-red{background:var(--red);color:#fff;}.btn-red:hover{background:#c62f3a;transform:translateY(-1px);}
 .btn-gold{background:var(--gold);color:#111;}.btn-gold:hover{background:#d9911e;transform:translateY(-1px);}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text-muted);}.btn-ghost:hover{border-color:var(--red);color:var(--red);}
 .btn-danger{background:transparent;border:1px solid #5a1a1f;color:var(--red);}.btn-danger:hover{background:var(--red-dim);}
-.btn-sm{padding:5px 10px;font-size:.75rem;}
+.btn-stamp{background:rgba(230,57,70,.12);border:1px solid rgba(230,57,70,.35);color:var(--red);}.btn-stamp.active{background:var(--red);color:#fff;}
+.btn-sm{padding:5px 9px;font-size:.73rem;}
 
 .main-layout{flex:1;display:flex;overflow:hidden;}
 .sidebar{width:var(--sidebar-w);min-width:var(--sidebar-w);background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
 .tabs{display:flex;border-bottom:1px solid var(--border);}
-.tab{flex:1;padding:11px 4px;text-align:center;font-size:.75rem;font-weight:700;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;transition:all .2s;user-select:none;}
+.tab{flex:1;padding:10px 4px;text-align:center;font-size:.73rem;font-weight:700;cursor:pointer;color:var(--text-muted);border-bottom:2px solid transparent;transition:all .2s;user-select:none;}
 .tab:hover{color:var(--text);}.tab.active{color:var(--red);border-bottom-color:var(--red);background:rgba(230,57,70,.04);}
 .tab-panel{display:none;flex:1;flex-direction:column;overflow:hidden;}.tab-panel.active{display:flex;}
 
-.filters{padding:8px 10px;display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--border);background:var(--surface2);}
-.filters select{background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit;font-size:.72rem;padding:5px 7px;outline:none;cursor:pointer;}
+.filters{padding:7px 9px;display:flex;gap:5px;flex-wrap:wrap;border-bottom:1px solid var(--border);background:var(--surface2);align-items:center;}
+.filters select{background:var(--surface);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:inherit;font-size:.7rem;padding:4px 6px;outline:none;cursor:pointer;}
 .filters select:focus{border-color:var(--gold);}
 
 .scroll-area{flex:1;overflow-y:auto;padding:10px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
 .scroll-area::-webkit-scrollbar{width:4px;}.scroll-area::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 
 /* ━━━ CARD ━━━ */
-.rest-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:14px;margin-bottom:8px;cursor:pointer;transition:all .2s;position:relative;}
+.rest-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:13px;margin-bottom:8px;cursor:pointer;transition:all .2s;position:relative;}
 .rest-card:hover{border-color:var(--gold-dim);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.4);}
 .rest-card.selected{border-color:var(--red);box-shadow:0 0 0 2px rgba(230,57,70,.2);}
-
-/* 또간집 도장 */
-.stamp{position:absolute;top:12px;right:14px;font-family:'Black Han Sans',sans-serif;font-size:.6rem;color:#e63946;border:2px solid #e63946;border-radius:6px;padding:2px 6px;opacity:.85;letter-spacing:.06em;transform:rotate(-8deg);pointer-events:none;white-space:nowrap;box-shadow:inset 0 0 0 1px rgba(230,57,70,.2);}
-
-.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px;padding-right:56px;}/* room for stamp */
-.card-name{font-family:'Black Han Sans',sans-serif;font-size:1rem;letter-spacing:.02em;line-height:1.2;}
-.card-ratings{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;}
-.rating-row{display:flex;align-items:center;gap:4px;font-size:.7rem;white-space:nowrap;}
-.rating-row .who{font-weight:700;min-width:14px;}
-.rating-avg{font-size:.8rem;color:var(--gold);font-weight:700;}
-.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:6px;}
-.tag{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:20px;}
+.stamp{position:absolute;top:11px;right:12px;font-family:'Black Han Sans',sans-serif;font-size:.58rem;color:#e63946;border:2px solid #e63946;border-radius:5px;padding:2px 5px;opacity:.88;letter-spacing:.06em;transform:rotate(-8deg);pointer-events:none;white-space:nowrap;}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:7px;padding-right:54px;}
+.card-name{font-family:'Black Han Sans',sans-serif;font-size:.95rem;letter-spacing:.02em;line-height:1.2;}
+.card-ratings{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0;}
+.rating-row{display:flex;align-items:center;gap:3px;font-size:.68rem;white-space:nowrap;}
+.rating-row .who{font-weight:700;min-width:13px;}
+.rating-overall{font-size:.82rem;color:var(--gold);font-weight:700;margin-top:2px;}
+.card-price-info{font-size:.7rem;color:var(--gold);margin-top:2px;text-align:right;}
+.card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:5px;}
+.tag{font-size:.66rem;font-weight:700;padding:2px 7px;border-radius:20px;}
 .tag-genre{background:rgba(230,57,70,.15);color:var(--red);border:1px solid rgba(230,57,70,.3);}
 .tag-char{background:rgba(45,206,122,.1);color:var(--green);border:1px solid rgba(45,206,122,.25);}
 .tag-region{background:rgba(79,163,224,.1);color:var(--blue);border:1px solid rgba(79,163,224,.25);}
-.tag-price{background:rgba(244,164,41,.1);color:var(--gold);border:1px solid rgba(244,164,41,.25);}
-.card-info{font-size:.72rem;color:var(--text-muted);margin-bottom:2px;}
-.card-menu-line{font-size:.72rem;color:var(--text-dim);margin-top:3px;}
-.card-memo{font-size:.71rem;color:var(--text-dim);line-height:1.5;margin-top:3px;font-style:italic;}
-
-/* 방문 기록 in card */
-.card-visits{margin-top:8px;border-top:1px solid var(--border);padding-top:8px;}
-.visit-entry{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 10px;margin-bottom:5px;}
+.tag-visits{background:rgba(230,57,70,.1);color:var(--red);border:1px solid rgba(230,57,70,.3);}
+.card-info{font-size:.7rem;color:var(--text-muted);margin-bottom:2px;}
+.card-menu-line{font-size:.7rem;color:var(--text-dim);margin-top:2px;}
+.card-memo{font-size:.69rem;color:var(--text-dim);line-height:1.5;margin-top:2px;font-style:italic;}
+.card-visits{margin-top:7px;border-top:1px solid var(--border);padding-top:7px;}
+.visit-entry{background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:7px 9px;margin-bottom:4px;}
 .visit-entry:last-child{margin-bottom:0;}
-.ve-header{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
-.ve-num{font-size:.62rem;font-weight:700;background:var(--red-dim);color:var(--red);border-radius:4px;padding:1px 5px;}
-.ve-date{font-size:.67rem;color:var(--text-muted);}
-.ve-memo{font-size:.7rem;color:var(--text-dim);margin-bottom:4px;font-style:italic;}
-.ve-ratings{display:flex;gap:10px;flex-wrap:wrap;}
-.ve-rating{font-size:.67rem;display:flex;align-items:center;gap:3px;}
-.ve-stars{color:var(--gold);font-size:.65rem;letter-spacing:.5px;}
-.ve-menus{font-size:.67rem;color:var(--text-dim);margin-top:3px;}
+.ve-header{display:flex;align-items:center;gap:5px;margin-bottom:3px;}
+.ve-num{font-size:.6rem;font-weight:700;background:var(--red-dim);color:var(--red);border-radius:4px;padding:1px 5px;}
+.ve-date{font-size:.65rem;color:var(--text-muted);}
+.ve-memo{font-size:.68rem;color:var(--text-dim);margin-bottom:3px;font-style:italic;}
+.ve-ratings{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.ve-rating{font-size:.65rem;display:flex;align-items:center;gap:2px;}
+.ve-stars{color:var(--gold);font-size:.63rem;}
+.ve-menus{font-size:.65rem;color:var(--text-dim);margin-top:2px;}
+.ve-price{font-size:.65rem;color:var(--gold);margin-top:2px;}
+.card-actions{display:flex;gap:5px;margin-top:9px;padding-top:9px;border-top:1px solid var(--border);}
 
-.card-actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
-
-.srch-item{padding:12px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:all .18s;background:var(--surface2);}
+.srch-item{padding:11px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;cursor:pointer;transition:all .18s;background:var(--surface2);}
 .srch-item:hover{border-color:var(--red);background:rgba(230,57,70,.05);}
-.srch-item .si-name{font-weight:700;font-size:.88rem;margin-bottom:3px;}
-.srch-item .si-cat{font-size:.72rem;color:var(--gold);margin-bottom:2px;}
-.srch-item .si-addr{font-size:.7rem;color:var(--text-muted);}
-
-.empty{text-align:center;padding:52px 20px;}
-.empty .e-icon{font-size:2.8rem;margin-bottom:14px;opacity:.6;}
-.empty p{font-size:.82rem;line-height:1.7;color:var(--text-muted);}
+.srch-item .si-name{font-weight:700;font-size:.86rem;margin-bottom:2px;}
+.srch-item .si-cat{font-size:.7rem;color:var(--gold);margin-bottom:2px;}
+.srch-item .si-addr{font-size:.68rem;color:var(--text-muted);}
+.empty{text-align:center;padding:48px 20px;}
+.empty .e-icon{font-size:2.6rem;margin-bottom:12px;opacity:.6;}
+.empty p{font-size:.8rem;line-height:1.7;color:var(--text-muted);}
 
 #map-wrap{flex:1;position:relative;overflow:hidden;}
 #map{width:100%;height:100%;}
-.map-popup{position:absolute;bottom:28px;left:24px;width:310px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;z-index:100;box-shadow:0 12px 48px rgba(0,0,0,.6);display:none;animation:popUp .22s cubic-bezier(.34,1.56,.64,1);}
+.map-popup{position:absolute;bottom:28px;left:24px;width:310px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;z-index:100;box-shadow:0 12px 48px rgba(0,0,0,.6);display:none;animation:popUp .22s cubic-bezier(.34,1.56,.64,1);}
 .map-popup.show{display:block;}
 @keyframes popUp{from{opacity:0;transform:translateY(12px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
-.popup-close{position:absolute;top:14px;right:14px;background:none;border:none;color:var(--text-dim);font-size:1.1rem;cursor:pointer;}
+.popup-close{position:absolute;top:12px;right:12px;background:none;border:none;color:var(--text-dim);font-size:1.1rem;cursor:pointer;}
 .popup-close:hover{color:var(--red);}
-.popup-name{font-family:'Black Han Sans',sans-serif;font-size:1.1rem;margin-bottom:4px;padding-right:24px;}
-.popup-cat{font-size:.75rem;color:var(--gold);margin-bottom:6px;}
-.popup-addr{font-size:.74rem;color:var(--text-muted);margin-bottom:4px;}
-.popup-phone{font-size:.74rem;color:var(--text-muted);margin-bottom:16px;}
+.popup-name{font-family:'Black Han Sans',sans-serif;font-size:1.05rem;margin-bottom:3px;padding-right:22px;}
+.popup-cat{font-size:.73rem;color:var(--gold);margin-bottom:5px;}
+.popup-addr{font-size:.72rem;color:var(--text-muted);margin-bottom:3px;}
+.popup-phone{font-size:.72rem;color:var(--text-muted);margin-bottom:14px;}
 .popup-actions{display:flex;gap:8px;}
+
+/* 지도 마커 */
+.k-marker{background:var(--surface);color:var(--text);font-family:'Black Han Sans',sans-serif;font-size:.62rem;padding:3px 8px;border-radius:12px;white-space:nowrap;border:2px solid var(--red);box-shadow:0 2px 8px rgba(0,0,0,.5);display:flex;align-items:center;gap:4px;}
+.k-marker .km-name{color:var(--text);}
+.k-marker .km-star{color:var(--gold);font-size:.6rem;}
 
 /* ━━━ MODAL ━━━ */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(4px);z-index:500;display:none;align-items:center;justify-content:center;}
 .modal-overlay.show{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:560px;max-width:95vw;max-height:92dvh;overflow-y:auto;padding:28px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.7);animation:modalIn .22s cubic-bezier(.34,1.56,.64,1);scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
+.modal{background:var(--surface);border:1px solid var(--border);border-radius:16px;width:560px;max-width:95vw;max-height:92dvh;overflow-y:auto;padding:26px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.7);animation:modalIn .22s cubic-bezier(.34,1.56,.64,1);scrollbar-width:thin;scrollbar-color:var(--border) transparent;}
 @keyframes modalIn{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
-.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--text-dim);font-size:1.3rem;cursor:pointer;}
+.modal-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text-dim);font-size:1.25rem;cursor:pointer;}
 .modal-close:hover{color:var(--red);}
-.modal-title{font-family:'Black Han Sans',sans-serif;font-size:1.35rem;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3px;}
-.modal-sub{font-size:.76rem;color:var(--text-muted);margin-bottom:20px;}
+.modal-title{font-family:'Black Han Sans',sans-serif;font-size:1.3rem;background:linear-gradient(135deg,var(--red),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:2px;}
+.modal-sub{font-size:.74rem;color:var(--text-muted);margin-bottom:18px;}
 
-.form-group{margin-bottom:14px;}
-.form-group label{display:block;font-size:.7rem;font-weight:700;color:var(--text-muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em;}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:inherit;font-size:.875rem;outline:none;transition:border-color .2s;}
+.form-group{margin-bottom:13px;}
+.form-group label{display:block;font-size:.68rem;font-weight:700;color:var(--text-muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 11px;color:var(--text);font-family:inherit;font-size:.86rem;outline:none;transition:border-color .2s;}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
-.form-group textarea{resize:vertical;min-height:68px;}
+.form-group textarea{resize:vertical;min-height:64px;}
 .form-group select option{background:var(--surface2);}
 .form-row{display:flex;gap:10px;}.form-row .form-group{flex:1;}
+.region-hint{font-size:.66rem;color:var(--green);margin-top:3px;}
 
 /* STAR PICKER */
-.star-picker{display:flex;gap:2px;padding:4px 0;user-select:none;}
-.star-picker.sm .star-wrap{width:1.6rem;height:1.6rem;}
-.star-picker.sm .star-bg,.star-picker.sm .star-fill{font-size:1.4rem;}
-.star-wrap{position:relative;width:2.2rem;height:2.2rem;cursor:pointer;flex-shrink:0;}
-.star-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--border);}
-.star-fill{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--gold);overflow:hidden;width:0%;transition:width .1s;}
+.star-picker{display:flex;gap:2px;padding:3px 0;user-select:none;}
+.star-picker.sm .star-wrap{width:1.5rem;height:1.5rem;}
+.star-picker.sm .star-bg,.star-picker.sm .star-fill{font-size:1.35rem;}
+.star-wrap{position:relative;width:2.1rem;height:2.1rem;cursor:pointer;flex-shrink:0;}
+.star-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:var(--border);}
+.star-fill{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.9rem;color:var(--gold);overflow:hidden;width:0%;transition:width .1s;}
 .half-l{position:absolute;left:0;top:0;width:50%;height:100%;z-index:2;}
 .half-r{position:absolute;right:0;top:0;width:50%;height:100%;z-index:2;}
 
-.dual-rating{display:flex;gap:16px;margin-top:4px;}
+.dual-rating{display:flex;gap:14px;margin-top:4px;}
 .rater{flex:1;}
-.rater-label{font-size:.75rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
-.dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.rater-label{font-size:.73rem;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:5px;}
+.dot{width:7px;height:7px;border-radius:50%;display:inline-block;flex-shrink:0;}
 .dot-h{background:var(--blue);}.dot-b{background:var(--purple);}
-.avg-line{font-size:.78rem;color:var(--text-muted);margin-top:8px;}
+.avg-line{font-size:.76rem;color:var(--text-muted);margin-top:7px;}
 .avg-line strong{color:var(--gold);}
 
 /* MENU */
-.menu-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:6px;}
-.menu-row{display:flex;gap:6px;align-items:center;}
-.menu-row .mi{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);font-family:inherit;font-size:.82rem;outline:none;}
+.menu-rows{display:flex;flex-direction:column;gap:5px;margin-bottom:5px;}
+.menu-row{display:flex;gap:5px;align-items:center;}
+.menu-row .mi{flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:6px 9px;color:var(--text);font-family:inherit;font-size:.8rem;outline:none;}
 .menu-row .mi:focus{border-color:var(--gold);}
-.menu-row .pi{width:100px;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);font-family:inherit;font-size:.82rem;outline:none;text-align:right;}
+.menu-row .pi{width:95px;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:6px 9px;color:var(--text);font-family:inherit;font-size:.8rem;outline:none;text-align:right;}
 .menu-row .pi:focus{border-color:var(--gold);}
-.menu-row .xbtn,.visit-block .xbtn{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:1rem;padding:4px 6px;transition:color .15s;flex-shrink:0;}
-.menu-row .xbtn:hover,.visit-block .xbtn:hover{color:var(--red);}
-.menu-total{font-size:.78rem;color:var(--gold);text-align:right;padding:4px 0 2px;font-weight:700;}
+.xbtn{background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.95rem;padding:4px 5px;transition:color .15s;flex-shrink:0;}
+.xbtn:hover{color:var(--red);}
+.menu-total{font-size:.76rem;color:var(--gold);text-align:right;padding:3px 0;font-weight:700;}
+.per-person{font-size:.73rem;color:var(--text-muted);text-align:right;padding-bottom:3px;}
 
-.dashed-btn{font-size:.75rem;background:none;border:1px dashed var(--border);border-radius:7px;padding:6px 12px;cursor:pointer;width:100%;transition:all .2s;font-family:inherit;margin-top:4px;}
+.dashed-btn{font-size:.73rem;background:none;border:1px dashed var(--border);border-radius:7px;padding:5px 11px;cursor:pointer;width:100%;transition:all .2s;font-family:inherit;margin-top:3px;}
 .dashed-btn.blue{color:var(--blue);}.dashed-btn.blue:hover{border-color:var(--blue);background:rgba(79,163,224,.07);}
 .dashed-btn.green{color:var(--green);}.dashed-btn.green:hover{border-color:var(--green);background:rgba(45,206,122,.07);}
 
-/* VISIT BLOCK in modal */
-.visit-blocks{display:flex;flex-direction:column;gap:10px;margin-bottom:8px;}
-.visit-block{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;position:relative;}
-.visit-block-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.vb-num{font-size:.65rem;font-weight:700;background:var(--red-dim);color:var(--red);border-radius:5px;padding:2px 7px;flex-shrink:0;}
-.vb-date-inp{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.78rem;font-family:inherit;outline:none;padding:2px 4px;cursor:pointer;min-width:120px;}
+/* VISIT BLOCK */
+.visit-blocks{display:flex;flex-direction:column;gap:9px;margin-bottom:7px;}
+.visit-block{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:11px 13px;position:relative;}
+.visit-block-header{display:flex;align-items:center;gap:7px;margin-bottom:9px;}
+.vb-num{font-size:.63rem;font-weight:700;background:var(--red-dim);color:var(--red);border-radius:5px;padding:2px 6px;flex-shrink:0;}
+.vb-date-inp{background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text-muted);font-size:.76rem;font-family:inherit;outline:none;padding:2px 3px;cursor:pointer;}
 .vb-date-inp:focus{border-bottom-color:var(--gold);}
-.visit-block .xbtn{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.9rem;}
-.visit-block .xbtn:hover{color:var(--red);}
-.vb-memo-inp{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:.8rem;font-family:inherit;outline:none;padding:2px 4px;margin-bottom:10px;}
+.visit-block>.xbtn{position:absolute;top:9px;right:9px;}
+.vb-memo-inp{width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);color:var(--text-dim);font-size:.78rem;font-family:inherit;outline:none;padding:2px 3px;margin-bottom:9px;}
 .vb-memo-inp:focus{border-bottom-color:var(--gold);}
 .vb-memo-inp::placeholder{color:var(--text-dim);}
-.vb-section{font-size:.67rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:5px;}
-.vb-dual{display:flex;gap:12px;margin-bottom:8px;}
+.vb-section{font-size:.65rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;}
+.vb-dual{display:flex;gap:10px;margin-bottom:7px;}
 .vb-rater{flex:1;}
-.vb-rater-label{font-size:.7rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:5px;}
-.vb-val{font-size:.68rem;margin-top:3px;}
+.vb-rater-label{font-size:.68rem;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:4px;}
+.vb-val{font-size:.66rem;margin-top:2px;}
 
-.sec{font-size:.7rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;padding:10px 0 6px;border-top:1px solid var(--border);margin-top:4px;}
-.stats-bar{padding:7px 12px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;gap:12px;font-size:.7rem;color:var(--text-muted);align-items:center;flex-wrap:wrap;}
+.sec{font-size:.68rem;font-weight:700;color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;padding:9px 0 5px;border-top:1px solid var(--border);margin-top:3px;}
+.stats-bar{padding:6px 11px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;gap:10px;font-size:.68rem;color:var(--text-muted);align-items:center;flex-wrap:wrap;}
 .stats-bar strong{color:var(--gold);}
-.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
-
-.toast{position:fixed;bottom:24px;right:24px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--red);color:var(--text);padding:12px 18px;border-radius:10px;font-size:.82rem;z-index:1000;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;box-shadow:0 8px 32px rgba(0,0,0,.5);}
+.modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:18px;padding-top:14px;border-top:1px solid var(--border);}
+.toast{position:fixed;bottom:22px;right:22px;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--red);color:var(--text);padding:11px 16px;border-radius:10px;font-size:.8rem;z-index:1000;opacity:0;transform:translateY(10px);transition:all .25s;pointer-events:none;box-shadow:0 8px 32px rgba(0,0,0,.5);}
 .toast.show{opacity:1;transform:translateY(0);}
-.k-marker{background:var(--red);color:#fff;font-family:'Black Han Sans',sans-serif;font-size:.65rem;padding:3px 8px;border-radius:12px;white-space:nowrap;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);}
 </style>
 </head>
 <body>
@@ -230,6 +230,8 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
           <option value="rating_asc">별점 낮은순</option>
           <option value="name">이름순</option>
           <option value="visits_desc">방문 많은순</option>
+          <option value="price_asc">가격 낮은순</option>
+          <option value="price_desc">가격 높은순</option>
         </select>
         <select id="fRating" onchange="renderList()">
           <option value="">별점 전체</option>
@@ -239,12 +241,13 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
           <option value="3">3.0★ 이상</option>
           <option value="low2">2.0★ 이하</option>
         </select>
+        <button class="btn btn-stamp btn-sm" id="btnRevisit" onclick="toggleRevisit()">🔴 또간집만</button>
       </div>
       <div class="stats-bar" id="statsBar">저장된 맛집이 없습니다.</div>
       <div class="scroll-area" id="restList"></div>
     </div>
     <div class="tab-panel" id="panel1">
-      <div style="padding:10px 14px;font-size:.74rem;color:var(--text-muted);border-bottom:1px solid var(--border);">가게를 클릭하면 지도에서 위치를 확인하고 저장할 수 있어요.</div>
+      <div style="padding:9px 13px;font-size:.72rem;color:var(--text-muted);border-bottom:1px solid var(--border);">가게를 클릭하면 지도에서 위치를 확인하고 저장할 수 있어요.</div>
       <div class="scroll-area" id="searchList">
         <div class="empty"><div class="e-icon">🔍</div><p>상단 검색창을 이용해보세요.</p></div>
       </div>
@@ -253,7 +256,7 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
 
   <div id="map-wrap">
     <div id="map"></div>
-    <div id="mapHint" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;font-size:.75rem;padding:7px 16px;border-radius:20px;pointer-events:none;white-space:nowrap;z-index:99;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12);transition:opacity .5s;">🖱️ 지도를 클릭하면 주변 음식점을 찾아드려요</div>
+    <div id="mapHint" style="position:absolute;top:14px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.72);color:#fff;font-size:.73rem;padding:6px 14px;border-radius:20px;pointer-events:none;white-space:nowrap;z-index:99;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12);transition:opacity .5s;">🖱️ 지도를 클릭하면 주변 음식점을 찾아드려요</div>
     <div class="map-popup" id="mapPopup">
       <button class="popup-close" onclick="closePopup()">✕</button>
       <div class="popup-name" id="ppName"></div>
@@ -290,7 +293,7 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
         </select>
       </div>
       <div class="form-group">
-        <label>지역</label>
+        <label>지역 <span style="font-size:.6rem;color:var(--green);font-weight:400;text-transform:none;">(주소 입력시 자동)</span></label>
         <select id="mRegion">
           <option value="">선택</option>
           <optgroup label="서울 강남권"><option>강남</option><option>역삼/선릉</option><option>서초/교대</option><option>방배/사당</option><option>청담/압구정</option><option>잠실/송파</option></optgroup>
@@ -302,6 +305,7 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
           <optgroup label="지방"><option>부산</option><option>대구</option><option>광주</option><option>대전</option><option>제주</option></optgroup>
           <option>기타</option>
         </select>
+        <div class="region-hint" id="regionHint"></div>
       </div>
     </div>
     <div class="form-row">
@@ -315,44 +319,44 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
         </select>
       </div>
       <div class="form-group">
-        <label>1인 가격대</label>
+        <label>1인 가격대 <span style="font-size:.6rem;color:var(--gold);font-weight:400;text-transform:none;">(메뉴 입력시 자동)</span></label>
         <select id="mPrice">
-          <option value="">선택</option><option>~1만원</option><option>1~2만원</option>
+          <option value="">자동계산</option><option>~1만원</option><option>1~2만원</option>
           <option>2~3만원</option><option>3~5만원</option><option>5만원~</option>
         </select>
       </div>
     </div>
 
-    <!-- 기본 별점 -->
     <div class="sec">⭐ 첫 방문 별점</div>
     <div class="dual-rating">
       <div class="rater">
         <div class="rater-label"><span class="dot dot-h"></span>혁</div>
         <div class="star-picker" id="spH"></div>
-        <div style="font-size:.73rem;color:var(--blue);margin-top:4px;">선택: <strong id="vH">3.0</strong>★</div>
+        <div style="font-size:.71rem;color:var(--blue);margin-top:3px;">선택: <strong id="vH">3.0</strong>★</div>
       </div>
       <div class="rater">
         <div class="rater-label"><span class="dot dot-b"></span>별</div>
         <div class="star-picker" id="spB"></div>
-        <div style="font-size:.73rem;color:var(--purple);margin-top:4px;">선택: <strong id="vB">3.0</strong>★</div>
+        <div style="font-size:.71rem;color:var(--purple);margin-top:3px;">선택: <strong id="vB">3.0</strong>★</div>
       </div>
     </div>
-    <div class="avg-line">평균 평점: <strong id="avgDisp">3.0★</strong></div>
+    <div class="avg-line">첫 방문 평균: <strong id="avgDisp">3.0★</strong></div>
 
-    <!-- 기본 메뉴 -->
-    <div class="sec">🍽️ 첫 방문 메뉴 &amp; 가격</div>
+    <div class="sec">🍽️ 첫 방문 메뉴 &amp; 가격 <span style="font-size:.6rem;color:var(--gold);font-weight:400;text-transform:none;">(2인 기준, 1인가격 자동계산)</span></div>
     <div class="menu-rows" id="menuRows"></div>
     <div class="menu-total" id="menuTotal"></div>
+    <div class="per-person" id="perPerson"></div>
     <button class="dashed-btn blue" onclick="addMenu()">＋ 메뉴 추가</button>
 
-    <!-- 기본 정보 -->
     <div class="sec">📍 기본 정보</div>
-    <div class="form-group"><label>주소</label><input id="mAddr" type="text" placeholder="주소"></div>
+    <div class="form-group">
+      <label>주소</label>
+      <input id="mAddr" type="text" placeholder="주소 입력시 지역 자동 분류" oninput="onAddrInput(this.value)">
+    </div>
     <div class="form-group"><label>전화번호</label><input id="mPhone" type="text" placeholder="예) 02-1234-5678"></div>
     <div class="form-group"><label>메모</label><textarea id="mMemo" placeholder="예) 웨이팅 필수, 주차 가능"></textarea></div>
 
-    <!-- 재방문 기록 -->
-    <div class="sec">🔁 재방문 기록 <span style="font-size:.65rem;color:var(--text-dim);font-weight:400;text-transform:none;">(두 번째 방문부터)</span></div>
+    <div class="sec">🔁 재방문 기록 <span style="font-size:.62rem;color:var(--text-dim);font-weight:400;text-transform:none;">(두 번째 방문부터)</span></div>
     <div class="visit-blocks" id="visitBlocks"></div>
     <button class="dashed-btn green" onclick="addVisit()">＋ 재방문 기록 추가</button>
 
@@ -382,24 +386,149 @@ window._fsReady=true;window.dispatchEvent(new Event('fsReady'));
 </script>
 
 <script>
+/* ━━━ 전역 상태 ━━━ */
 let map,ps,geocoder;
 let searchMarkers=[],savedMarkerMap={},currentSearchPlace=null,clickMarker=null,nearbyMarkers=[];
 let _db=[];
 let _rH=3.0,_rB=3.0;
 let _menus=[];
-let _visits=[];   // [{date,memo,rH,rB,menus:[]}]
+let _visits=[];
+let _showRevisitOnly=false;
+
+/* ━━━ 지역 자동분류 테이블 ━━━ */
+const REGION_MAP=[
+  // 강남구
+  [['강남구 역삼','역삼동'],'역삼/선릉'],
+  [['강남구 삼성','삼성동','강남구 선릉','선릉동'],'역삼/선릉'],
+  [['강남구 논현','논현동','강남구 신사','신사동','강남구 압구정','압구정동'],'청담/압구정'],
+  [['강남구 청담','청담동'],'청담/압구정'],
+  [['강남구 대치','대치동','강남구 도곡','도곡동','강남구 개포','개포동','강남구 일원','일원동'],'강남'],
+  [['강남구 세곡','강남구 자곡','강남구 율현','강남구 수서'],'강남'],
+  [['강남구'],'강남'],
+  // 서초구
+  [['서초구 서초','서초동','서초구 잠원','잠원동','서초구 반포','반포동'],'서초/교대'],
+  [['서초구 방배','방배동','서초구 사당','사당동'],'방배/사당'],
+  [['서초구'],'서초/교대'],
+  // 송파/강동
+  [['송파구','잠실동','방이동','오금동','석촌동','풍납동','강동구'],'잠실/송파'],
+  // 종로/광화문
+  [['종로구','광화문','청계천','인사동','북촌'],'종로/광화문'],
+  // 중구 을지로
+  [['중구 을지로','을지로','명동','충무로','남대문'],'을지로/명동'],
+  [['중구'],'을지로/명동'],
+  // 용산구
+  [['이태원','한남동','보광동'],'이태원/한남'],
+  [['용산구','용산동','효창동','청파동'],'용산'],
+  // 마포구
+  [['홍대','홍익로','합정동','상수동','망원동 홍'],'홍대/합정'],
+  [['마포구 망원','망원동'],'망원/상수'],
+  [['마포구 상수','상수동'],'망원/상수'],
+  [['마포구 공덕','공덕동','마포구 아현','아현동','마포구 도화','도화동','마포구 용강','용강동'],'마포/공덕'],
+  [['마포구'],'마포/공덕'],
+  // 서대문/신촌
+  [['신촌','연세로','서대문구 창천','창천동','서대문구 대현','대현동'],'신촌/연대'],
+  [['서대문구'],'신촌/연대'],
+  // 은평/마포 서북
+  [['은평구'],'기타'],
+  // 성동구/성수
+  [['성동구 성수','성수동'],'성수/뚝섬'],
+  [['성동구 뚝도','뚝도동','성동구 옥수','옥수동','성동구 금호','금호동','성동구 행당','행당동','성동구 왕십리','왕십리동'],'왕십리/마장'],
+  [['성동구'],'성수/뚝섬'],
+  // 광진구/건대
+  [['광진구 화양','화양동','광진구 자양','자양동','광진구 구의','구의동'],'건대/광진'],
+  [['광진구'],'건대/광진'],
+  // 동대문/마장
+  [['동대문구','중랑구'],'왕십리/마장'],
+  // 노원/도봉
+  [['노원구','도봉구'],'노원/도봉'],
+  // 영등포/여의도
+  [['영등포구 여의도','여의도동'],'여의도/영등포'],
+  [['영등포구'],'여의도/영등포'],
+  // 관악/신림
+  [['관악구'],'신림/관악'],
+  // 구로/신도림
+  [['구로구','금천구'],'구로/신도림'],
+  // 수도권
+  [['분당구','판교'],'판교/분당'],
+  [['수원'],'수원'],
+  [['인천'],'인천'],
+  [['고양시','일산'],'일산/고양'],
+  // 지방
+  [['부산'],'부산'],
+  [['대구'],'대구'],
+  [['광주'],'광주'],
+  [['대전'],'대전'],
+  [['제주'],'제주'],
+];
+
+function guessRegion(addr){
+  if(!addr)return'';
+  for(const[keys,region]of REGION_MAP){
+    if(keys.some(k=>addr.includes(k)))return region;
+  }
+  return'기타';
+}
+
+function onAddrInput(val){
+  if(!val)return;
+  const guessed=guessRegion(val);
+  if(guessed){
+    const sel=document.getElementById('mRegion');
+    // 해당 option이 있으면 자동 선택
+    const opt=[...sel.options].find(o=>o.value===guessed);
+    if(opt){
+      sel.value=guessed;
+      document.getElementById('regionHint').textContent='✓ 자동 분류: '+guessed;
+    }
+  }
+}
+
+/* ━━━ 1인 가격 계산 ━━━ */
+function calcPerPerson(menusArr,totalId,perPersonId){
+  const total=menusArr.reduce((s,m)=>s+(m.price||0),0);
+  const tEl=document.getElementById(totalId);
+  const pEl=document.getElementById(perPersonId);
+  if(tEl)tEl.textContent=menusArr.length&&total?'합계(2인): '+total.toLocaleString()+'원':'';
+  if(pEl)pEl.textContent=menusArr.length&&total?'1인: '+(Math.round(total/2)).toLocaleString()+'원':'';
+  return total;
+}
+
+function getPerPersonAmt(menusArr){
+  const t=menusArr.reduce((s,m)=>s+(m.price||0),0);
+  return t>0?Math.round(t/2):0;
+}
+
+/* 전체 방문 평균 1인 가격 계산 */
+function calcOverallPerPerson(r){
+  const allMenus=[];
+  if(r.menus&&r.menus.length)allMenus.push(r.menus);
+  (r.visits||[]).forEach(v=>{if(v.menus&&v.menus.length)allMenus.push(v.menus);});
+  if(!allMenus.length)return 0;
+  const perVisit=allMenus.map(getPerPersonAmt).filter(v=>v>0);
+  if(!perVisit.length)return 0;
+  return Math.round(perVisit.reduce((s,v)=>s+v,0)/perVisit.length);
+}
+
+/* 1인 가격 → 가격대 레이블 */
+function priceTier(amt){
+  if(!amt)return'';
+  if(amt<10000)return'~1만원';
+  if(amt<20000)return'1~2만원';
+  if(amt<30000)return'2~3만원';
+  if(amt<50000)return'3~5만원';
+  return'5만원~';
+}
 const PRICE_ORD={'~1만원':1,'1~2만원':2,'2~3만원':3,'3~5만원':4,'5만원~':5};
 
-/* ─ Firebase ─ */
+/* ━━━ Firebase ━━━ */
 function initFS(){window._FS.listen(rows=>{_db=rows;renderList();renderSavedMarkers();});}
 if(window._fsReady)initFS();else window.addEventListener('fsReady',initFS);
 
 /* ━━━ 별점 피커 ━━━ */
 function buildPicker(wrId,dispId,init,onChg,small){
   const wr=document.getElementById(wrId);if(!wr)return;
-  wr.innerHTML='';if(small)wr.classList.add('sm');
-  let cur=init??3.0;
-  const fills=[];
+  wr.innerHTML='';if(small)wr.classList.add('sm');else wr.classList.remove('sm');
+  let cur=init??3.0;const fills=[];
   for(let i=1;i<=5;i++){
     const sw=document.createElement('div');sw.className='star-wrap';
     const bg=document.createElement('div');bg.className='star-bg';bg.textContent='★';
@@ -407,19 +536,14 @@ function buildPicker(wrId,dispId,init,onChg,small){
     const hl=document.createElement('div');hl.className='half-l';
     const hr=document.createElement('div');hr.className='half-r';
     sw.append(bg,fi,hl,hr);wr.appendChild(sw);fills.push({fi,i});
-    const set=v=>{
-      cur=v;
-      if(dispId){const el=document.getElementById(dispId);if(el)el.textContent=v.toFixed(1);}
-      fills.forEach(({fi:f,i:idx})=>{f.style.width=v>=idx?'100%':v>=idx-.5?'50%':'0%';});
-      onChg&&onChg(v);
-    };
-    const preview=v=>fills.forEach(({fi:f,i:idx})=>{f.style.width=v>=idx?'100%':v>=idx-.5?'50%':'0%';});
+    const upd=v=>fills.forEach(({fi:f,i:idx})=>{f.style.width=v>=idx?'100%':v>=idx-.5?'50%':'0%';});
+    const set=v=>{cur=v;if(dispId){const el=document.getElementById(dispId);if(el)el.textContent=v.toFixed(1);}upd(v);onChg&&onChg(v);};
     hl.addEventListener('click',()=>set(i-.5));
     hr.addEventListener('click',()=>set(i));
-    hl.addEventListener('mouseenter',()=>preview(i-.5));
-    hr.addEventListener('mouseenter',()=>preview(i));
-    hl.addEventListener('mouseleave',()=>preview(cur));
-    hr.addEventListener('mouseleave',()=>preview(cur));
+    hl.addEventListener('mouseenter',()=>upd(i-.5));
+    hr.addEventListener('mouseenter',()=>upd(i));
+    hl.addEventListener('mouseleave',()=>upd(cur));
+    hr.addEventListener('mouseleave',()=>upd(cur));
     if(i===5)set(cur);
   }
 }
@@ -429,7 +553,7 @@ function refreshAvg(){
   if(el)el.textContent=((_rH+_rB)/2).toFixed(1)+'★';
 }
 
-/* ━━━ 별 표시 (카드) ━━━ */
+/* ━━━ 별 표시 ━━━ */
 function stars(v){
   let h='';
   for(let i=1;i<=5;i++){
@@ -440,24 +564,43 @@ function stars(v){
   return h;
 }
 
+/* ━━━ 전체 방문 평균 별점 계산 ━━━ */
+function calcOverallRating(r){
+  // 모든 방문의 (혁+별)/2 평균
+  const rounds=[];
+  const firstAvg=r.ratingHyuk!=null&&r.ratingByul!=null?(r.ratingHyuk+r.ratingByul)/2:r.rating||0;
+  if(firstAvg)rounds.push(firstAvg);
+  (r.visits||[]).forEach(v=>{
+    if(v.rH!=null&&v.rB!=null)rounds.push((v.rH+v.rB)/2);
+    else if(v.rH!=null)rounds.push(v.rH);
+    else if(v.rB!=null)rounds.push(v.rB);
+  });
+  if(!rounds.length)return(r.rating||0);
+  return rounds.reduce((s,v)=>s+v,0)/rounds.length;
+}
+
 /* ━━━ 기본 메뉴 ━━━ */
 function renderMenus(){
   const wr=document.getElementById('menuRows');wr.innerHTML='';
   _menus.forEach((m,i)=>{
     const row=document.createElement('div');row.className='menu-row';
     row.innerHTML=`<input class="mi" type="text" placeholder="메뉴명" value="${esc(m.name)}" oninput="_menus[${i}].name=this.value">
-      <input class="pi" type="number" placeholder="가격(원)" value="${m.price||''}" oninput="_menus[${i}].price=+this.value||0;calcTotal()">
+      <input class="pi" type="number" placeholder="가격(원)" value="${m.price||''}" oninput="_menus[${i}].price=+this.value||0;calcPerPerson(_menus,'menuTotal','perPerson');autoPriceTier()">
       <button class="xbtn" onclick="removeMenu(${i})">✕</button>`;
     wr.appendChild(row);
-  });calcTotal();
+  });
+  calcPerPerson(_menus,'menuTotal','perPerson');
 }
 function addMenu(){_menus.push({name:'',price:0});renderMenus();}
-function removeMenu(i){_menus.splice(i,1);renderMenus();}
-function calcTotal(arr,elId){
-  const a=arr||_menus;const id=elId||'menuTotal';
-  const t=a.reduce((s,m)=>s+(m.price||0),0);
-  const el=document.getElementById(id);if(!el)return;
-  el.textContent=a.length&&t?'합계: '+t.toLocaleString()+'원':'';
+function removeMenu(i){_menus.splice(i,1);renderMenus();autoPriceTier();}
+
+function autoPriceTier(){
+  const pp=getPerPersonAmt(_menus);
+  if(pp>0){
+    const tier=priceTier(pp);
+    const sel=document.getElementById('mPrice');
+    if(sel)[...sel.options].forEach(o=>{if(o.value===tier)sel.value=tier;});
+  }
 }
 
 /* ━━━ 재방문 블록 ━━━ */
@@ -485,43 +628,33 @@ function renderVisits(){
           <div class="vb-val" style="color:var(--purple)">선택: <strong id="vvB_${vi}">${(v.rB??3).toFixed(1)}</strong>★</div>
         </div>
       </div>
-      <div class="vb-section">메뉴 &amp; 가격</div>
+      <div class="vb-section">메뉴 &amp; 가격 (2인 기준)</div>
       <div class="menu-rows" id="vmr_${vi}"></div>
       <div class="menu-total" id="vmt_${vi}"></div>
-      <button class="dashed-btn blue" style="margin-top:4px" onclick="addVMenu(${vi})">＋ 메뉴 추가</button>`;
+      <div class="per-person" id="vpp_${vi}"></div>
+      <button class="dashed-btn blue" style="margin-top:3px" onclick="addVMenu(${vi})">＋ 메뉴 추가</button>`;
     wr.appendChild(block);
-
-    // build pickers
     buildPicker(`vspH_${vi}`,`vvH_${vi}`,v.rH??3.0,val=>{_visits[vi].rH=val;},true);
     buildPicker(`vspB_${vi}`,`vvB_${vi}`,v.rB??3.0,val=>{_visits[vi].rB=val;},true);
     renderVMenus(vi);
   });
 }
-function addVisit(){
-  _visits.push({date:new Date().toISOString().slice(0,10),memo:'',rH:3.0,rB:3.0,menus:[]});
-  renderVisits();
-}
+function addVisit(){_visits.push({date:new Date().toISOString().slice(0,10),memo:'',rH:3.0,rB:3.0,menus:[]});renderVisits();}
 function removeVisit(i){_visits.splice(i,1);renderVisits();}
-
 function renderVMenus(vi){
   const wr=document.getElementById(`vmr_${vi}`);if(!wr)return;
   wr.innerHTML='';
   (_visits[vi].menus||[]).forEach((m,mi)=>{
     const row=document.createElement('div');row.className='menu-row';
     row.innerHTML=`<input class="mi" type="text" placeholder="메뉴명" value="${esc(m.name)}" oninput="_visits[${vi}].menus[${mi}].name=this.value">
-      <input class="pi" type="number" placeholder="가격(원)" value="${m.price||''}" oninput="_visits[${vi}].menus[${mi}].price=+this.value||0;calcTotal(_visits[${vi}].menus,'vmt_${vi}')">
+      <input class="pi" type="number" placeholder="가격(원)" value="${m.price||''}" oninput="_visits[${vi}].menus[${mi}].price=+this.value||0;calcPerPerson(_visits[${vi}].menus,'vmt_${vi}','vpp_${vi}')">
       <button class="xbtn" onclick="removeVMenu(${vi},${mi})">✕</button>`;
     wr.appendChild(row);
   });
-  calcTotal(_visits[vi].menus,`vmt_${vi}`);
+  calcPerPerson(_visits[vi].menus,`vmt_${vi}`,`vpp_${vi}`);
 }
-function addVMenu(vi){
-  if(!_visits[vi].menus)_visits[vi].menus=[];
-  _visits[vi].menus.push({name:'',price:0});
-  renderVMenus(vi);
-}
+function addVMenu(vi){if(!_visits[vi].menus)_visits[vi].menus=[];_visits[vi].menus.push({name:'',price:0});renderVMenus(vi);}
 function removeVMenu(vi,mi){_visits[vi].menus.splice(mi,1);renderVMenus(vi);}
-
 function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
 
 /* ━━━ 카카오맵 ━━━ */
@@ -567,7 +700,7 @@ function searchNearby(latlng){
     if(status!==kakao.maps.services.Status.OK)return;
     switchTab(1);
     const listEl=document.getElementById('searchList');
-    listEl.innerHTML=`<div style="padding:10px 12px;font-size:.74rem;color:var(--gold);border-bottom:1px solid var(--border);">📍 주변 음식점 ${data.length}곳</div>`;
+    listEl.innerHTML=`<div style="padding:9px 12px;font-size:.72rem;color:var(--gold);border-bottom:1px solid var(--border);">📍 주변 음식점 ${data.length}곳</div>`;
     data.forEach(p=>{
       const pos=new kakao.maps.LatLng(p.y,p.x);
       const mk=new kakao.maps.Marker({map,position:pos});nearbyMarkers.push(mk);
@@ -591,6 +724,7 @@ function showPopup(p){
 function closePopup(){document.getElementById('mapPopup').classList.remove('show');currentSearchPlace=null;}
 function saveFromPopup(){if(!currentSearchPlace)return;openModal(currentSearchPlace);closePopup();}
 
+/* ━━━ 저장된 마커 (이름 + 평균별점) ━━━ */
 function renderSavedMarkers(){
   if(!map)return;
   Object.values(savedMarkerMap).forEach(({marker,overlay})=>{marker.setMap(null);if(overlay)overlay.setMap(null);});
@@ -599,7 +733,9 @@ function renderSavedMarkers(){
     if(!r.lat||!r.lng)return;
     const pos=new kakao.maps.LatLng(parseFloat(r.lat),parseFloat(r.lng));
     const marker=new kakao.maps.Marker({map,position:pos});
-    const overlay=new kakao.maps.CustomOverlay({position:pos,content:`<div class="k-marker">${r.name}</div>`,yAnchor:2.6,zIndex:3});
+    const overallRating=calcOverallRating(r).toFixed(1);
+    const content=`<div class="k-marker"><span class="km-name">${r.name}</span><span class="km-star">★${overallRating}</span></div>`;
+    const overlay=new kakao.maps.CustomOverlay({position:pos,content,yAnchor:2.8,zIndex:3});
     overlay.setMap(map);savedMarkerMap[r.id]={marker,overlay};
     kakao.maps.event.addListener(marker,'click',()=>{
       switchTab(0);const card=document.getElementById('card-'+r.id);
@@ -608,7 +744,15 @@ function renderSavedMarkers(){
   });
 }
 
-/* ━━━ 카드 목록 ━━━ */
+/* ━━━ 또간집 토글 ━━━ */
+function toggleRevisit(){
+  _showRevisitOnly=!_showRevisitOnly;
+  const btn=document.getElementById('btnRevisit');
+  btn.classList.toggle('active',_showRevisitOnly);
+  renderList();
+}
+
+/* ━━━ 목록 렌더링 ━━━ */
 function renderList(){
   let data=[..._db];
   const genre=document.getElementById('fGenre')?.value||'';
@@ -618,50 +762,56 @@ function renderList(){
 
   if(genre)data=data.filter(r=>r.genre===genre);
   if(region)data=data.filter(r=>r.region===region);
-  if(ratingF==='low2')data=data.filter(r=>(r.rating||0)<=2);
-  else if(ratingF)data=data.filter(r=>(r.rating||0)>=parseFloat(ratingF));
+  if(_showRevisitOnly)data=data.filter(r=>(r.visits||[]).length>0);
+  if(ratingF==='low2')data=data.filter(r=>calcOverallRating(r)<=2);
+  else if(ratingF)data=data.filter(r=>calcOverallRating(r)>=parseFloat(ratingF));
 
   switch(sort){
-    case'rating_desc':data.sort((a,b)=>(b.rating||0)-(a.rating||0));break;
-    case'rating_asc': data.sort((a,b)=>(a.rating||0)-(b.rating||0));break;
+    case'rating_desc':data.sort((a,b)=>calcOverallRating(b)-calcOverallRating(a));break;
+    case'rating_asc': data.sort((a,b)=>calcOverallRating(a)-calcOverallRating(b));break;
     case'name':       data.sort((a,b)=>(a.name||'').localeCompare(b.name||''));break;
     case'visits_desc':data.sort((a,b)=>((b.visits||[]).length)-((a.visits||[]).length));break;
+    case'price_asc':  data.sort((a,b)=>calcOverallPerPerson(a)-calcOverallPerPerson(b));break;
+    case'price_desc': data.sort((a,b)=>calcOverallPerPerson(b)-calcOverallPerPerson(a));break;
     default:          data.sort((a,b)=>(b.created_at?.seconds||0)-(a.created_at?.seconds||0));
   }
 
   const all=_db;
-  const avg=all.length?(all.reduce((s,r)=>s+(r.rating||0),0)/all.length).toFixed(1):'-';
-  document.getElementById('statsBar').innerHTML=`총 <strong>${all.length}</strong>곳 · 평균 <strong>${avg}★</strong> · 현재 <strong>${data.length}</strong>곳 표시`;
+  const overallAvg=all.length?(all.reduce((s,r)=>s+calcOverallRating(r),0)/all.length).toFixed(1):'-';
+  document.getElementById('statsBar').innerHTML=
+    `총 <strong>${all.length}</strong>곳 · 전체 평균 <strong>${overallAvg}★</strong> · 현재 <strong>${data.length}</strong>곳${_showRevisitOnly?' <span style="color:var(--red)">또간집만</span>':''}`;
 
   const el=document.getElementById('restList');
   if(!data.length){el.innerHTML='<div class="empty"><div class="e-icon">🍽️</div><p>저장된 맛집이 없습니다.<br>검색 후 가게를 추가해보세요!</p></div>';return;}
 
   el.innerHTML=data.map(r=>{
     const rh=r.ratingHyuk??null,rb=r.ratingByul??null;
-    const avgR=rh!=null&&rb!=null?((rh+rb)/2).toFixed(1):rh!=null?rh.toFixed(1):rb!=null?rb.toFixed(1):(r.rating||0).toFixed(1);
+    const firstAvgR=rh!=null&&rb!=null?((rh+rb)/2).toFixed(1):rh!=null?rh.toFixed(1):rb!=null?rb.toFixed(1):(r.rating||0).toFixed(1);
+    const overallR=calcOverallRating(r).toFixed(1);
     const visitCnt=(r.visits||[]).length;
     const isRevisit=visitCnt>0;
+    const overallPP=calcOverallPerPerson(r);
+    const firstPP=getPerPersonAmt(r.menus||[]);
 
-    // 기본 메뉴
     const menuLine=(r.menus&&r.menus.length)?`<div class="card-menu-line">🍽 ${r.menus.map(m=>m.name+(m.price?' ('+m.price.toLocaleString()+'원)':'')).join(' · ')}</div>`:'';
 
-    // 방문 기록 블록
+    const priceInfo=overallPP>0?`<div class="card-price-info">💴 1인 평균 ${overallPP.toLocaleString()}원${visitCnt>0?` (${visitCnt+1}회 평균)`:''}</div>`:'';
+
     const visitHtml=isRevisit?`<div class="card-visits">
       ${(r.visits||[]).map((v,vi)=>{
         const vAvg=v.rH!=null&&v.rB!=null?((v.rH+v.rB)/2).toFixed(1):'';
+        const vPP=getPerPersonAmt(v.menus||[]);
         const vMenuLine=(v.menus&&v.menus.length)?`<div class="ve-menus">🍽 ${v.menus.map(m=>m.name+(m.price?' ('+m.price.toLocaleString()+'원)':'')).join(' · ')}</div>`:'';
         return`<div class="visit-entry">
-          <div class="ve-header">
-            <span class="ve-num">${vi+2}번째</span>
-            <span class="ve-date">${v.date||''}</span>
-          </div>
+          <div class="ve-header"><span class="ve-num">${vi+2}번째</span><span class="ve-date">${v.date||''}</span></div>
           ${v.memo?`<div class="ve-memo">${v.memo}</div>`:''}
           <div class="ve-ratings">
-            ${v.rH!=null?`<div class="ve-rating"><span style="color:var(--blue);font-weight:700;font-size:.65rem">혁</span><span class="ve-stars">${stars(v.rH)}</span><span style="color:var(--blue)">${v.rH.toFixed(1)}</span></div>`:''}
-            ${v.rB!=null?`<div class="ve-rating"><span style="color:var(--purple);font-weight:700;font-size:.65rem">별</span><span class="ve-stars">${stars(v.rB)}</span><span style="color:var(--purple)">${v.rB.toFixed(1)}</span></div>`:''}
-            ${vAvg?`<div class="ve-rating" style="margin-left:4px;color:var(--gold);font-weight:700">평균 ${vAvg}★</div>`:''}
+            ${v.rH!=null?`<div class="ve-rating"><span style="color:var(--blue);font-weight:700;font-size:.63rem">혁</span><span class="ve-stars">${stars(v.rH)}</span><span style="color:var(--blue)">${v.rH.toFixed(1)}</span></div>`:''}
+            ${v.rB!=null?`<div class="ve-rating"><span style="color:var(--purple);font-weight:700;font-size:.63rem">별</span><span class="ve-stars">${stars(v.rB)}</span><span style="color:var(--purple)">${v.rB.toFixed(1)}</span></div>`:''}
+            ${vAvg?`<div class="ve-rating" style="color:var(--gold);font-weight:700;margin-left:3px">평균 ${vAvg}★</div>`:''}
           </div>
           ${vMenuLine}
+          ${vPP?`<div class="ve-price">💴 1인 ${vPP.toLocaleString()}원</div>`:''}
         </div>`;
       }).join('')}
     </div>`:'';
@@ -671,17 +821,17 @@ function renderList(){
       <div class="card-top">
         <div class="card-name">${r.name}</div>
         <div class="card-ratings">
-          ${rh!=null?`<div class="rating-row"><span class="who" style="color:var(--blue)">혁</span><span>${stars(rh)}</span><span style="color:var(--blue);font-size:.68rem;margin-left:2px">${rh.toFixed(1)}</span></div>`:''}
-          ${rb!=null?`<div class="rating-row"><span class="who" style="color:var(--purple)">별</span><span>${stars(rb)}</span><span style="color:var(--purple);font-size:.68rem;margin-left:2px">${rb.toFixed(1)}</span></div>`:''}
-          <div class="rating-avg">평균 ${avgR}★</div>
+          ${rh!=null?`<div class="rating-row"><span class="who" style="color:var(--blue)">혁</span><span>${stars(rh)}</span><span style="color:var(--blue);font-size:.66rem;margin-left:1px">${rh.toFixed(1)}</span></div>`:''}
+          ${rb!=null?`<div class="rating-row"><span class="who" style="color:var(--purple)">별</span><span>${stars(rb)}</span><span style="color:var(--purple);font-size:.66rem;margin-left:1px">${rb.toFixed(1)}</span></div>`:''}
+          <div class="rating-overall">${isRevisit?`전체 평균 ${overallR}★`:`평균 ${firstAvgR}★`}</div>
+          ${priceInfo}
         </div>
       </div>
       <div class="card-tags">
         ${r.genre?`<span class="tag tag-genre">${r.genre}</span>`:''}
         ${r.char?`<span class="tag tag-char">${r.char}</span>`:''}
         ${r.region?`<span class="tag tag-region">${r.region}</span>`:''}
-        ${r.price?`<span class="tag tag-price">💴 ${r.price}</span>`:''}
-        ${isRevisit?`<span class="tag" style="background:rgba(230,57,70,.1);color:var(--red);border:1px solid rgba(230,57,70,.3)">총 ${visitCnt+1}번 방문</span>`:''}
+        ${isRevisit?`<span class="tag tag-visits">총 ${visitCnt+1}번 방문</span>`:''}
       </div>
       ${menuLine}
       ${r.address?`<div class="card-info">📍 ${r.address}</div>`:''}
@@ -715,10 +865,13 @@ function openModal(place){
   document.getElementById('mLat').value=place?.y||'';
   document.getElementById('mLng').value=place?.x||'';
   document.getElementById('mName').value=place?.place_name||'';
-  document.getElementById('mAddr').value=place?.road_address_name||place?.address_name||'';
+  const addr=place?.road_address_name||place?.address_name||'';
+  document.getElementById('mAddr').value=addr;
   document.getElementById('mPhone').value=place?.phone||'';
   ['mGenre','mRegion','mChar','mPrice'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('mMemo').value='';
+  document.getElementById('regionHint').textContent='';
+  if(addr)onAddrInput(addr);
   _rH=3.0;_rB=3.0;_menus=[];_visits=[];
   initModal();
   document.getElementById('mTitle').textContent=place?'맛집 저장':'직접 추가';
@@ -741,6 +894,7 @@ function openEditModal(id){
   document.getElementById('mChar').value=r.char||'';
   document.getElementById('mPrice').value=r.price||'';
   document.getElementById('mMemo').value=r.memo||'';
+  document.getElementById('regionHint').textContent='';
   _rH=r.ratingHyuk??3.0;_rB=r.ratingByul??3.0;
   _menus=(r.menus||[]).map(m=>({...m}));
   _visits=(r.visits||[]).map(v=>({...v,menus:(v.menus||[]).map(m=>({...m}))}));
@@ -756,12 +910,13 @@ function saveRest(){
   const name=document.getElementById('mName').value.trim();
   if(!name){toast('가게 이름을 입력해주세요.');return;}
   const avgR=parseFloat(((_rH+_rB)/2).toFixed(1));
+  const firstPP=getPerPersonAmt(_menus);
   const entry={
     name,
     genre:document.getElementById('mGenre').value,
     region:document.getElementById('mRegion').value,
     char:document.getElementById('mChar').value,
-    price:document.getElementById('mPrice').value,
+    price:document.getElementById('mPrice').value||(firstPP?priceTier(firstPP):''),
     ratingHyuk:_rH,ratingByul:_rB,rating:avgR,
     menus:_menus.filter(m=>m.name),
     visits:_visits.map(v=>({...v,menus:(v.menus||[]).filter(m=>m.name)})),
