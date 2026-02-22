@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>맛집지도</title>
-<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=378af64f053167ad79191e19a1874612&libraries=services&autoload=false"></script>
+<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=KAKAO_API_KEY_PLACEHOLDER&libraries=services&autoload=false"></script>
 <script>window.addEventListener('load',()=>kakao.maps.load(initMap));</script>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -192,8 +192,7 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
 <header>
   <div class="logo">🍜 맛집지도</div>
   <div class="search-bar">
-    <input id="searchInput" type="text" placeholder="음식점 이름이나 지역으로 검색"
-      onkeydown="if(event.key==='Enter')doSearch()">
+    <input id="searchInput" type="text" placeholder="음식점 이름이나 지역으로 검색" onkeydown="if(event.key==='Enter')doSearch()">
     <button class="btn btn-red" onclick="doSearch()">검색</button>
   </div>
   <button class="btn btn-gold" onclick="openModal(null)" style="margin-left:auto">＋ 직접 추가</button>
@@ -240,6 +239,12 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
           <option value="3.5">3.5★ 이상</option>
           <option value="3">3.0★ 이상</option>
           <option value="low2">2.0★ 이하</option>
+        </select>
+        <select id="fUnrated" onchange="renderList()">
+          <option value="">평가 상태 (전체)</option>
+          <option value="missing_h">혁 평가 대기중</option>
+          <option value="missing_b">별 평가 대기중</option>
+          <option value="missing_both">둘 다 미평가 (가볼 곳)</option>
         </select>
         <button class="btn btn-stamp btn-sm" id="btnRevisit" onclick="toggleRevisit()">🔴 또간집만</button>
       </div>
@@ -372,7 +377,14 @@ header{height:56px;background:var(--surface);border-bottom:1px solid var(--borde
 import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import{getFirestore,collection,onSnapshot,addDoc,updateDoc,deleteDoc,doc,serverTimestamp}
   from'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
-const app=initializeApp({apiKey:"AIzaSyAqSpsDWIPl-9j-6K8Fnyl_E6Hpzry7Tvs",authDomain:"matzip-a9637.firebaseapp.com",projectId:"matzip-a9637",storageBucket:"matzip-a9637.firebasestorage.app",messagingSenderId:"1095196901803",appId:"1:1095196901803:web:99d5fe542559c5ae6192ee"});
+const app=initializeApp({
+  apiKey:"FIREBASE_API_KEY_PLACEHOLDER",
+  authDomain:"matzip-a9637.firebaseapp.com",
+  projectId:"matzip-a9637",
+  storageBucket:"matzip-a9637.firebasestorage.app",
+  messagingSenderId:"1095196901803",
+  appId:"1:1095196901803:web:99d5fe542559c5ae6192ee"
+});
 const fs=getFirestore(app);const COL=collection(fs,'restaurants');
 window._FS={
   listen:cb=>onSnapshot(COL,snap=>cb(snap.docs.map(d=>({id:d.id,...d.data()})))),
@@ -384,11 +396,11 @@ window._fsReady=true;window.dispatchEvent(new Event('fsReady'));
 </script>
 
 <script>
-/* ━━━ 전역 상태 (초기값을 null로 변경) ━━━ */
+/* ━━━ 전역 상태 (미평가 null 처리) ━━━ */
 let map,ps,geocoder;
 let searchMarkers=[],savedMarkerMap={},currentSearchPlace=null,clickMarker=null,nearbyMarkers=[];
 let _db=[];
-let _rH=null,_rB=null; // 3.0에서 null(미평가)로 변경
+let _rH=null,_rB=null; 
 let _menus=[];
 let _visits=[];
 let _showRevisitOnly=false;
@@ -454,11 +466,11 @@ function priceTier(amt){
 }
 const PRICE_ORD={'~1만원':1,'1~2만원':2,'2~3만원':3,'3~5만원':4,'5만원~':5};
 
-/* ━━━ Firebase ━━━ */
+/* ━━━ Firebase Init ━━━ */
 function initFS(){window._FS.listen(rows=>{_db=rows;renderList();renderSavedMarkers();});}
 if(window._fsReady)initFS();else window.addEventListener('fsReady',initFS);
 
-/* 🌟 수정된 별점 피커 (미평가 null 처리) 🌟 */
+/* ━━━ 별점 피커 (미평가 UI 적용) ━━━ */
 function buildPicker(wrId,dispId,init,onChg,small){
   const wr=document.getElementById(wrId);if(!wr)return;
   wr.innerHTML='';if(small)wr.classList.add('sm');else wr.classList.remove('sm');
@@ -473,7 +485,6 @@ function buildPicker(wrId,dispId,init,onChg,small){
     const hr=document.createElement('div');hr.className='half-r';
     sw.append(bg,fi,hl,hr);wr.appendChild(sw);fills.push({fi,i});
     
-    // 비어있을 땐 회색별 유지
     const upd=v=>{
       fills.forEach(({fi:f,i:idx})=>{
         if(v===null){ f.style.width='0%'; return; }
@@ -519,7 +530,6 @@ function stars(v){
   return h;
 }
 
-/* 🌟 수정된 전체 평균 계산 (null 무시) 🌟 */
 function calcOverallRating(r){
   const rounds=[];
   let firstAvg = null;
@@ -562,7 +572,7 @@ function autoPriceTier(){
   }
 }
 
-/* 🌟 방문 기록 블록 (초기값 null) 🌟 */
+/* ━━━ 재방문 로직 ━━━ */
 function renderVisits(){
   const wr=document.getElementById('visitBlocks');wr.innerHTML='';
   _visits.forEach((v,vi)=>{
@@ -711,19 +721,24 @@ function toggleRevisit(){
   renderList();
 }
 
-/* 🌟 목록 렌더링 (카드 UI에 미평가 반영) 🌟 */
+/* 🌟 목록 렌더링 (숙제 검사 필터 & 대기중 뱃지 UI 적용) 🌟 */
 function renderList(){
   let data=[..._db];
   const genre=document.getElementById('fGenre')?.value||'';
   const region=document.getElementById('fRegion')?.value||'';
   const sort=document.getElementById('fSort')?.value||'date';
   const ratingF=document.getElementById('fRating')?.value||'';
+  const unratedF=document.getElementById('fUnrated')?.value||''; // 새 필터
 
   if(genre)data=data.filter(r=>r.genre===genre);
   if(region)data=data.filter(r=>r.region===region);
   if(_showRevisitOnly)data=data.filter(r=>(r.visits||[]).length>0);
   
-  // 미평가는 필터링 시 0점으로 간주되어 '별점 낮은순' 등에 잡힙니다.
+  // 미평가 필터 로직
+  if(unratedF==='missing_h') data=data.filter(r=>r.ratingHyuk==null);
+  if(unratedF==='missing_b') data=data.filter(r=>r.ratingByul==null);
+  if(unratedF==='missing_both') data=data.filter(r=>r.ratingHyuk==null && r.ratingByul==null);
+
   if(ratingF==='low2')data=data.filter(r=>calcOverallRating(r)<=2);
   else if(ratingF)data=data.filter(r=>calcOverallRating(r)>=parseFloat(ratingF));
 
@@ -744,7 +759,7 @@ function renderList(){
     `총 <strong>${all.length}</strong>곳 · 전체 평균 <strong>${overallAvg}★</strong> · 현재 <strong>${data.length}</strong>곳${_showRevisitOnly?' <span style="color:var(--red)">또간집만</span>':''}`;
 
   const el=document.getElementById('restList');
-  if(!data.length){el.innerHTML='<div class="empty"><div class="e-icon">🍽️</div><p>저장된 맛집이 없습니다.<br>검색 후 가게를 추가해보세요!</p></div>';return;}
+  if(!data.length){el.innerHTML='<div class="empty"><div class="e-icon">🍽️</div><p>조건에 맞는 맛집이 없습니다.</p></div>';return;}
 
   el.innerHTML=data.map(r=>{
     const rh=r.ratingHyuk??null, rb=r.ratingByul??null;
@@ -753,11 +768,20 @@ function renderList(){
     if(rh!=null && rb!=null) firstAvgDisp = ((rh+rb)/2).toFixed(1)+'★';
     else if(rh!=null) firstAvgDisp = rh.toFixed(1)+'★';
     else if(rb!=null) firstAvgDisp = rb.toFixed(1)+'★';
-    else if(r.rating && r.rating>0) firstAvgDisp = r.rating.toFixed(1)+'★'; // 레거시
+    else if(r.rating && r.rating>0) firstAvgDisp = r.rating.toFixed(1)+'★';
 
     const overallR=calcOverallRating(r);
     const overallDisp = overallR>0 ? overallR.toFixed(1)+'★' : '미평가';
     
+    // 🌟 새로운 '평가 대기중' 뱃지 UI 🌟
+    const badgeH = rh != null 
+      ? `<div class="rating-row"><span class="who" style="color:var(--blue)">혁</span><span>${stars(rh)}</span><span style="color:var(--blue);font-size:.66rem;margin-left:1px">${rh.toFixed(1)}</span></div>`
+      : `<div class="rating-row"><span class="who" style="color:var(--text-muted)">혁</span><span style="color:var(--text-dim);font-size:.65rem;border:1px dashed var(--border);padding:1px 4px;border-radius:4px;margin-left:2px">평가 대기중</span></div>`;
+
+    const badgeB = rb != null 
+      ? `<div class="rating-row"><span class="who" style="color:var(--purple)">별</span><span>${stars(rb)}</span><span style="color:var(--purple);font-size:.66rem;margin-left:1px">${rb.toFixed(1)}</span></div>`
+      : `<div class="rating-row"><span class="who" style="color:var(--text-muted)">별</span><span style="color:var(--text-dim);font-size:.65rem;border:1px dashed var(--border);padding:1px 4px;border-radius:4px;margin-left:2px">평가 대기중</span></div>`;
+
     const visitCnt=(r.visits||[]).length;
     const isRevisit=visitCnt>0;
     const overallPP=calcOverallPerPerson(r);
@@ -788,8 +812,8 @@ function renderList(){
       <div class="card-top">
         <div class="card-name">${r.name}</div>
         <div class="card-ratings">
-          ${rh!=null?`<div class="rating-row"><span class="who" style="color:var(--blue)">혁</span><span>${stars(rh)}</span><span style="color:var(--blue);font-size:.66rem;margin-left:1px">${rh.toFixed(1)}</span></div>`:''}
-          ${rb!=null?`<div class="rating-row"><span class="who" style="color:var(--purple)">별</span><span>${stars(rb)}</span><span style="color:var(--purple);font-size:.66rem;margin-left:1px">${rb.toFixed(1)}</span></div>`:''}
+          ${badgeH}
+          ${badgeB}
           <div class="rating-overall">${isRevisit?`전체 평균 ${overallDisp}`:`평균 ${firstAvgDisp}`}</div>
           ${priceInfo}
         </div>
@@ -819,7 +843,7 @@ function focusCard(id,lat,lng){
   document.getElementById('card-'+id)?.classList.add('selected');
 }
 
-/* 🌟 모달 초기화 (null 상태로) 🌟 */
+/* ━━━ 모달 초기화 (null 상태로) ━━━ */
 function initModal(){
   buildPicker('spH','vH',_rH,v=>{_rH=v;refreshAvg();});
   buildPicker('spB','vB',_rB,v=>{_rB=v;refreshAvg();});
@@ -840,7 +864,7 @@ function openModal(place){
   document.getElementById('regionHint').textContent='';
   if(addr)onAddrInput(addr);
   
-  _rH=null; _rB=null; // 무조건 비운 채로 시작
+  _rH=null; _rB=null; // 새 장소는 무조건 비운 채로
   _menus=[];_visits=[];
   initModal();
   
@@ -866,7 +890,7 @@ function openEditModal(id){
   document.getElementById('mMemo').value=r.memo||'';
   document.getElementById('regionHint').textContent='';
   
-  _rH=r.ratingHyuk??null; // 저장된 값이 없으면 null
+  _rH=r.ratingHyuk??null;
   _rB=r.ratingByul??null; 
   _menus=(r.menus||[]).map(m=>({...m}));
   _visits=(r.visits||[]).map(v=>({...v,menus:(v.menus||[]).map(m=>({...m}))}));
